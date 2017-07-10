@@ -8,6 +8,16 @@
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="ddjbtc.js"></script>
+    <style>
+        .row h2{
+            text-align: center;
+            margin-top: 1.5em;
+        }
+
+        .row{
+            padding:2em;
+        }
+    </style>
 </head>
 
 <body ng-app="myApp" ng-controller="MyController">
@@ -42,7 +52,7 @@
         <hr>
         <div class="row">
             <h2><span class="label label-primary">3</span> 加密貨幣市場價格</h2>
-            <div style="margin:2em;">
+            <div>
                 <h3><span class="label label-default">USDTWD</span> {{usdtwd}}</h3>
                 <h3><span class="label label-primary">BTCUSD</span> {{btc.usd}}</h3>
                 <h3><span class="label label-primary">BTCTWD</span> {{btc.twd}}</h3>
@@ -55,11 +65,11 @@
         <hr>
         <div class="row">
             <h2><span class="label label-primary">4</span> BIP39金屬冷儲數字代碼(隨機12個)</h2>
-            <div style="margin:2em;">
-                <h3><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">bips/bip-0039</a> | <a href="https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md">bips/bip-0039-wordlists.md</a></h3>
+            <h3><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">bips/bip-0039</a> | <a href="https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md">bips/bip-0039-wordlists.md</a></h3>
                 <h3>{{bip39ran.codeEn.join(' ')}}</h3>
                 <h3>{{bip39ran.codeNum.join(' ')}}</h3>
                 <h3>{{bip39ran.codeZh.join(' ')}}</h3>
+            <div>
                 <div class="row">
                     <div class="col-sm-3" ng-repeat="code in bip39ran.codeEn track by $index">
                         <h3>
@@ -105,6 +115,17 @@
                 </div>
             </div>
         </div>
+        <hr>
+         <div class="row">
+            <h2><span class="label label-primary">5</span> 燒毀地址</h2>
+            <div>
+                <h3><span class="label label-primary">測試鏈</span> {{burnAddr.test}}</h3>
+                 <p><a href="https://live.blockcypher.com/btc-testnet/address/{{burn.test}}">TESTNET | BlockCypher</a></p>
+                <h3><span class="label label-default">主鏈</span> {{burnAddr.main}}</h3>
+                <p><a href="https://live.blockcypher.com/btc/address/{{burn.main}}">bitcoin Block Explorer | BlockCypher</a></p>
+            </div>
+        </div>
+        <hr>
     </div>
     </div>
     <div class="jumbotron text-center">

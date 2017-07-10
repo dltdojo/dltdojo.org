@@ -9,13 +9,13 @@ Mnemonic.Words.CHINESE_TRADITIONAL = ZH_TW_WORDLIST
 angular.module('myApp', [])
     .controller('MyController', function ($scope, $http) {
 
-        function getBurnAddress() {
+        function getBurnAddress(prefix, charTail) {
             var net = _.startsWith(prefix, 'm') || _.startsWith(prefix, 'n') ? Networks.testnet : Networks.livenet
             var padded = prefix + Array(34 + 1 - prefix.length).join(charTail);
             var hash160 = bitcore.encoding.Base58.decode(padded).slice(1, 21);
             var address = new bitcore.Address(hash160, net);
-            console.log(padded, hash160, address)
-            return address
+            // console.log(padded, hash160, address)
+            return address.toString()
         }
 
         function taskKey() {
@@ -115,8 +115,19 @@ angular.module('myApp', [])
             }
             console.log($scope.bip39ran)
         }
+
+        function taskBurnAddress(){
+            let addrMain = getBurnAddress('12ooooooooooDLTdojooo','8')
+            let addrTest = getBurnAddress('mvooooooooooDLTdojooo','9')
+            $scope.burnAddr={
+                main:addrMain,
+                test:addrTest
+            }
+
+        }
         taskKey()
         taskP2PKH()
         taskCoinTicker()
         taskBip39Number()
+        taskBurnAddress()
     });
