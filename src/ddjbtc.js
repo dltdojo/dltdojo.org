@@ -5,6 +5,7 @@ const Mnemonic = require('bitcore-mnemonic')
 // https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md
 const ZH_TW_WORDLIST = require('./chinese_traditional.json')
 Mnemonic.Words.CHINESE_TRADITIONAL = ZH_TW_WORDLIST
+const blockchainAnchor = require('blockchain-anchor')
 
 angular.module('myApp', [])
     .controller('MyController', function ($scope, $http) {
@@ -116,18 +117,51 @@ angular.module('myApp', [])
             console.log($scope.bip39ran)
         }
 
-        function taskBurnAddress(){
-            let addrMain = getBurnAddress('12ooooooooooDLTdojooo','8')
-            let addrTest = getBurnAddress('mvooooooooooDLTdojooo','9')
-            $scope.burnAddr={
-                main:addrMain,
-                test:addrTest
+        function taskBurnAddress() {
+            let addrMain = getBurnAddress('12ooooooooooDLTdojooo', '8')
+            let addrTest = getBurnAddress('mvooooooooooDLTdojooo', '9')
+            $scope.burnAddr = {
+                main: addrMain,
+                test: addrTest
             }
-
         }
+
+        function taskBlokcAnchor() {
+            // https://github.com/Tierion/blockchain-anchor
+            $scope.banchorAddress = "mqw6tYvfBrELNYJtwKpCod4FjbmxRaRCfN"
+            $scope.banchorWif = "cUPa6Zr2jPGREvWsmz8GhjaehD824kFNFjvVRF6uQZFyqLNzUYco"
+            // "HELLO DLTDOJO.ORG"
+            $scope.banchorData = "48454c4c4f20444c54444f4a4f2e4f5247"
+        }
+
+        $scope.banchorEmbed = function () {
+            let anchorOptions = {
+                useTestnet: true,
+                blockchainServiceName: 'insightbitpay',
+                feeSatoshi: 90000
+            }
+            let hexData = $scope.banchorData
+            let wif = $scope.banchorWif
+            let banchorKey = bitcore.PrivateKey.fromWIF(wif);
+            $scope.banchorAddress = banchorKey.toAddress().toString()
+            console.log(banchorKey)
+            
+            let anchor = new blockchainAnchor(wif, anchorOptions)
+            anchor.embed(hexData, function (err, transactionId, rawTransaction) {
+                if (err) {
+                    // do something
+                    console.log(err)
+                } else {
+                    console.log('New transaction Id = ' + transactionId);
+                    console.log('Raw tx = ' + rawTransaction);
+                }
+            });
+        }
+
         taskKey()
         taskP2PKH()
         taskCoinTicker()
         taskBip39Number()
         taskBurnAddress()
+        taskBlokcAnchor()
     });

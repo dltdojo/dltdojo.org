@@ -9,13 +9,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="ddjbtc.js"></script>
     <style>
-        .row h2{
+        .row h2 {
             text-align: center;
-            margin-top: 1.5em;
+            margin: 1.5em;
+            line-height: 1.5em;
         }
 
-        .row{
-            padding:2em;
+        .row {
+            padding: 2em;
         }
     </style>
 </head>
@@ -66,9 +67,9 @@
         <div class="row">
             <h2><span class="label label-primary">4</span> BIP39金屬冷儲數字代碼(隨機12個)</h2>
             <h3><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">bips/bip-0039</a> | <a href="https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md">bips/bip-0039-wordlists.md</a></h3>
-                <h3>{{bip39ran.codeEn.join(' ')}}</h3>
-                <h3>{{bip39ran.codeNum.join(' ')}}</h3>
-                <h3>{{bip39ran.codeZh.join(' ')}}</h3>
+            <h3>{{bip39ran.codeEn.join(' ')}}</h3>
+            <h3>{{bip39ran.codeNum.join(' ')}}</h3>
+            <h3>{{bip39ran.codeZh.join(' ')}}</h3>
             <div>
                 <div class="row">
                     <div class="col-sm-3" ng-repeat="code in bip39ran.codeEn track by $index">
@@ -116,14 +117,42 @@
             </div>
         </div>
         <hr>
-         <div class="row">
+        <div class="row">
             <h2><span class="label label-primary">5</span> 燒毀地址</h2>
             <div>
                 <h3><span class="label label-primary">測試鏈</span> {{burnAddr.test}}</h3>
-                 <p><a href="https://live.blockcypher.com/btc-testnet/address/{{burn.test}}">TESTNET | BlockCypher</a></p>
+                <p><a href="https://live.blockcypher.com/btc-testnet/address/{{burn.test}}">TESTNET | BlockCypher</a></p>
                 <h3><span class="label label-default">主鏈</span> {{burnAddr.main}}</h3>
                 <p><a href="https://live.blockcypher.com/btc/address/{{burn.main}}">bitcoin Block Explorer | BlockCypher</a></p>
             </div>
+        </div>
+        <hr>
+        <div class="row">
+            <h2><span class="label label-primary">6</span> 寫OP_RETURN</h2>
+            <div>
+                <h3>最多40Bytes</h3>
+                <div style="padding:1em;" class="row">
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">PrivateKey(WIF)</span>
+                            <input type="text" ng-model="banchorWif" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">資料(HEX)</span>
+                            <input type="text" ng-model="banchorData" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div style="padding:1em;" class="row">
+                    <div class="col-lg-2">
+                        <button type="button" class="btn btn-default" ng-click="banchorEmbed()">嵌入</button>
+                    </div>
+                </div>
+            </div>
+              <p><a href="https://live.blockcypher.com/btc-testnet/address/{{banchorAddress}}" target="_blank">TESTNET | BlockCypher</a></p>
+            <p><a href="http://www.online-toolz.com/tools/text-hex-convertor.php" target="_blank">Text to Hex Converter - Online Toolz</a></p>
         </div>
         <hr>
     </div>
