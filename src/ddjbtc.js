@@ -7,9 +7,8 @@ const ZH_TW_WORDLIST = require('./chinese_traditional.json')
 Mnemonic.Words.CHINESE_TRADITIONAL = ZH_TW_WORDLIST
 const blockchainAnchor = require('blockchain-anchor')
 
-angular.module('myApp', [])
-    .controller('MyController', function ($scope, $http) {
-
+function myController( $scope, $http ) {
+    
         function getBurnAddress(prefix, charTail) {
             var net = _.startsWith(prefix, 'm') || _.startsWith(prefix, 'n') ? Networks.testnet : Networks.livenet
             var padded = prefix + Array(34 + 1 - prefix.length).join(charTail);
@@ -157,11 +156,12 @@ angular.module('myApp', [])
                 }
             });
         }
-
         taskKey()
         taskP2PKH()
         taskCoinTicker()
         taskBip39Number()
         taskBurnAddress()
         taskBlokcAnchor()
-    });
+}
+let ngModule = angular.module('myApp', [])
+ngModule.controller( "MyController", [ "$scope", "$http", myController] )

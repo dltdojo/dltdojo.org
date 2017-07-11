@@ -1,9 +1,8 @@
 const litecore = require('litecore-lib')
 const network = litecore.Networks.testnet
 
-angular.module('myApp', [])
-    .controller('MyController', ['$scope', function ($scope) {
-        var tpk = new litecore.PrivateKey(litecore.Networks.testnet);
+function myController($scope){
+    var tpk = new litecore.PrivateKey(litecore.Networks.testnet);
         var pk = new litecore.PrivateKey(litecore.Networks.livenet);
         $scope.key = {
             key: pk,
@@ -17,5 +16,8 @@ angular.module('myApp', [])
             pub: tpk.toPublicKey().toString('hex'),
             address: tpk.toAddress().toString()
         }
-        console.log($scope.key)
-    }]);
+        console.log("litecoin", $scope.key)
+}
+
+let ngModule = angular.module('myApp', [])
+ngModule.controller('MyController', ['$scope',myController]);
