@@ -1,3 +1,11 @@
+### Setup
+
+```
+$ npm i 
+$ npm run watch
+$ npm run sync
+```
+
 ### Node.js on Windows 
 
 * node-v8.1.2-x64

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-hant-TW">
+
+<head>
+    <title>DLTDOJO - 熵熱踢道場</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="ddjanchor.js"></script>
+    <style>
+        .row h2 {
+            text-align: center;
+            margin: 1.5em;
+            line-height: 1.5em;
+        }
+
+        .row {
+            padding: 2em;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="MyController">
+    <div class="jumbotron text-center">
+        <img class="img-responsive center-block" src="https://dltdojo.org/images/dltdojox660.png" width="660">
+        <h2>DLTDOJO blockchain-anchor Test Page</h2>
+    </div>
+    <div class="container" style="margin:2em;">
+        <div class="row">
+            <h2>嵌入資料到Bitcoin區塊鏈</h2>
+            <h2>UglifyJs issue (webpack -p)</h2>
+            <div>
+                <h3>OP_RETURN欄位最多40Bytes</h3>
+                <div style="padding:1em;" class="row">
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">PrivateKey(WIF)</span>
+                            <input type="text" ng-model="banchorWif" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">資料(HEX)</span>
+                            <input type="text" ng-model="banchorData" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div style="padding:1em;" class="row">
+                    <div class="col-lg-2">
+                        <button type="button" class="btn btn-default" ng-click="banchorEmbed()">嵌入</button>
+                    </div>
+                </div>
+            </div>
+            <p><a href="https://live.blockcypher.com/btc-testnet/address/{{banchorAddress}}" target="_blank">TESTNET | BlockCypher</a></p>
+            <p><a href="http://www.online-toolz.com/tools/text-hex-convertor.php" target="_blank">Text to Hex Converter - Online Toolz</a></p>
+        </div>
+        <hr>
+    </div>
+    </div>
+    <div class="jumbotron text-center">
+        <h2>DLTDOJO Bitcoin Test Page</h2>
+    </div>
+</body>
+
+</html>

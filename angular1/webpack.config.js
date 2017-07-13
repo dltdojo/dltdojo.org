@@ -9,6 +9,7 @@ module.exports = {
     ddjxrp: './src/ddjxrp.js',
     ddjdoge: './src/ddjdoge.js',
     ddjdash: './src/ddjdash.js',
+    ddjanchor: './src/ddjanchor.js',
   },
   output: {
     filename: "[name].js",

@@ -5,7 +5,6 @@ const Mnemonic = require('bitcore-mnemonic')
 // https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md
 const ZH_TW_WORDLIST = require('./chinese_traditional.json')
 Mnemonic.Words.CHINESE_TRADITIONAL = ZH_TW_WORDLIST
-const blockchainAnchor = require('blockchain-anchor')
 
 function myController( $scope, $http ) {
     
