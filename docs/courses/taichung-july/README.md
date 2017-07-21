@@ -28,28 +28,26 @@
 
 ### 3.3 比特幣節點與網路
 
-* https://github.com/bitcoin/bitcoin
-* https://github.com/bcoin-org
-* Bitcoin in Go https://github.com/btcsuite
-* paritytech/parity-bitcoin https://github.com/paritytech/parity-bitcoin
-
-### 3.4 比特幣錢包與開發工具
-
-* bitcoin-cli wallet
-* bitcore-lib
+* 比特幣節點 https://github.com/dltdojo/container/tree/master/dltdojo/bitcoind
+* 比特幣區塊瀏覽器 https://github.com/dltdojo/container/tree/master/dltdojo/abe
+* 比特幣網路 https://github.com/dltdojo/container/tree/master/dltdojo/bitcoin-net
 
 ## 4. 比特幣應用開發
 
-playground 選一例
+* bitcore-lib https://github.com/dltdojo/container/tree/master/dltdojo/bitcorelib
 
-## 5. 以太坊介紹
+## 5. 以太坊開發
 
 ### 5.1 以太坊介紹
 
+* 以太坊 - 維基百科 https://zh.wikipedia.org/wiki/%E4%BB%A5%E5%A4%AA%E5%9D%8A
+* [中文] 以太坊白皮书 · ethereum/wiki Wiki https://github.com/ethereum/wiki/wiki/%5B%E4%B8%AD%E6%96%87%5D-%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%99%BD%E7%9A%AE%E4%B9%A6
+
 ### 5.2 以太坊節點與網路
 
-* ethereum/go-ethereum https://github.com/ethereum/go-ethereum
-* paritytech/parity https://github.com/paritytech/parity
+* geth節點 https://github.com/dltdojo/container/tree/master/dltdojo/geth
+* 區塊瀏覽器 https://github.com/dltdojo/container/tree/master/dltdojo/carsenk-explorer
+* clique網路 https://github.com/dltdojo/container/tree/master/dltdojo/clique
 
 ### 5.3 以太坊錢包
 
@@ -57,22 +55,15 @@ playground 選一例
 * MyEtherWallet https://www.myetherwallet.com/
 * MetaMask https://github.com/MetaMask
 
-### 5.3 以太坊智能合約
+### 5.4 以太坊智能合約開發
 
-* Solidity
-* DAO
-* MultiSig
-* ERC20
-* ENS
-
-### 5.4 以太坊開發工具
-
-* web3
-* truffle
-
-## 6. 以太坊開發
-
-* ERC20
+* Solidity http://solidity.readthedocs.io/en/develop/
+* Remix https://remix.ethereum.org/
+* ERC20 Token Standard https://theethereum.wiki/w/index.php/ERC20_Token_Standard
+* HumanStandardToken.sol https://github.com/ConsenSys/Tokens/blob/master/Token_Contracts/contracts/HumanStandardToken.sol
+* ENS https://github.com/ethereum/ens
+* truffle http://truffleframework.com/docs/
+* LogoVote https://github.com/EtherTW/LogoVote2017
 
 ## 7. 超級帳本Fabric介紹與開發
 
