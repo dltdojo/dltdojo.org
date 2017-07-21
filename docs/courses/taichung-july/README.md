@@ -60,13 +60,20 @@
 * Solidity http://solidity.readthedocs.io/en/develop/
 * Remix https://remix.ethereum.org/
 * ERC20 Token Standard https://theethereum.wiki/w/index.php/ERC20_Token_Standard
-* HumanStandardToken.sol https://github.com/ConsenSys/Tokens/blob/master/Token_Contracts/contracts/HumanStandardToken.sol
-* ENS https://github.com/ethereum/ens
 * truffle http://truffleframework.com/docs/
+* MyToken https://github.com/dltdojo/container/tree/master/dltdojo/truffle
+
+參考
+
+* ENS https://github.com/ethereum/ens
 * LogoVote https://github.com/EtherTW/LogoVote2017
+* DDJ ENS https://github.com/dltdojo/ens
 
 ## 7. 超級帳本Fabric介紹與開發
 
-* fabric-ca
-* hyperledger composer
-* business network(BN)
+* https://hyperledger-fabric.readthedocs.io/en/latest/blockchain.html
+* Fabric CA User’s Guide http://fabrictestdocs.readthedocs.io/en/latest/Setup/ca-setup.html
+* Fabric CA https://github.com/dltdojo/container/tree/master/dltdojo/fabric-ca
+* hyperledger/composer: Composer is a framework for building Blockchain business networks https://github.com/hyperledger/composer
+* Hyperledger Composer https://github.com/dltdojo/container/tree/master/dltdojo/composer
+* dltdojo/composer-sample-networks: Sample business network definitions for Composer  https://github.com/dltdojo/composer-sample-networks
