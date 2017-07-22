@@ -57,6 +57,7 @@
 
 ### 5.4 以太坊智能合約開發
 
+* web3.js http://web3js.readthedocs.io/en/1.0/
 * Solidity http://solidity.readthedocs.io/en/develop/
 * Remix https://remix.ethereum.org/
 * ERC20 Token Standard https://theethereum.wiki/w/index.php/ERC20_Token_Standard
