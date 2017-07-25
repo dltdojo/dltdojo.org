@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>DLTDOJO ETHEREUM TESTPAGE</h2>
+          <h2>以太坊 ETHEREUM TESTPAGE</h2>
         </div>
         <h4>PrivateKey: {privateKey}</h4>
         <h4>PublicKey: {publicKey}</h4>

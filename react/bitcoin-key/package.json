@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bitcore-message": "^1.0.4",
+    "jsonld": "^0.4.12",
+    "jsonld-signatures": "^1.2.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.10"
@@ -13,8 +16,9 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "./",
-  "devDependencies": {
+   "peerDependencies": {
     "bitcore-lib": "^0.14.0"
-  }
+  },
+  "homepage": "./",
+  "devDependencies": {}
 }
