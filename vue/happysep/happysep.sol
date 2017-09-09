@@ -7,6 +7,7 @@ contract HappySeptember is Ownable {
     
     address public tokenAddress = 0x97d961543CBf38BE1335b123C4f87767e58ae299;
     MintableToken public token;
+    event PlayEvent( address indexed from, uint amount, uint random1000, uint rate, uint reward); 
     
     function HappySeptember(){
         token = MintableToken(tokenAddress);
@@ -24,11 +25,36 @@ contract HappySeptember is Ownable {
     function allowance(address _addr) constant returns (uint) {
         return token.allowance(_addr, this);
     }
+    
+    // The msg.sender must call approve(this, balance) beforehand so that
+    // transferFrom() will work and not throw.
+    function play(uint _amount) returns (uint) {
+        require(_amount > 0 && allowance(msg.sender) == _amount);
+        token.transferFrom(msg.sender, this, _amount);
+        bytes32 randomHash =  sha3(block.blockhash(block.number-1),_amount, msg.sender);
+        uint random100 = uint(randomHash) % 100;
+        uint rate = 10 / ( (random100 / 10 + 1));
+        // 0-9 x10
+        // 10-19 x5
+        // 20-29 x3
+        // 30-39 x2
+        // 40-49 x2
+        // 50-99 x0
+        uint reward = 0;
+        if(random100 < 50){
+            reward = _amount * rate;
+            if(reward<=balanceOf()){
+               token.transfer(msg.sender, reward);
+            }
+        }
+        PlayEvent(msg.sender, _amount, random100, rate, reward);
+        return reward;
+    }
 }
 
 contract TestToken is MintableToken {
     function TestToken(){
-        totalSupply = 2100 ether;
+        totalSupply = 21009999 ether;
         balances[msg.sender] = totalSupply;
     }
 }
@@ -51,6 +77,11 @@ contract TestUser {
         token.approve(_spender, 0);
         return token.approve(_spender, _value);
     }
+    
+    function play(uint _amount) returns (uint) {
+        return hsep.play(_amount);
+    }
+    
 }
 
 contract TestHappySep {
@@ -59,23 +90,29 @@ contract TestHappySep {
     HappySeptember hsep;
     TestToken token;
     
+    event LogEvent( uint log1); 
+    
     function _init() private {
         hsep = new HappySeptember();
         token = new TestToken();
         hsep.setTokenAddress(token);
         alice.setContracts(hsep,token);
-        require(token.balanceOf(this) == 2100 ether);
+        require(token.balanceOf(this) == 21009999 ether);
     }
     
     function test1Approve(){
         _init();
-        token.transfer(hsep, 100 ether);
-        require(hsep.balanceOf()==100 ether);
+        token.transfer(hsep, 19998888 ether);
+        require(hsep.balanceOf()==19998888 ether);
         token.transfer(alice, 200 ether);
         require(token.balanceOf(alice)==200 ether);
         require(alice.approve(hsep, 17 ether));
         // function allowance(address _owner, address _spender) constant returns (uint remaining);
         require(token.allowance(alice,hsep) == 17 ether);
         require(hsep.allowance(alice) == 17 ether);
+        uint reward = alice.play(17 ether);
+        LogEvent(reward);
+        LogEvent(token.balanceOf(alice));
+        
     }
 }
