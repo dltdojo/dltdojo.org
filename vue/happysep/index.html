@@ -52,9 +52,11 @@
             <button v-on:click="approve">approve(toAccount,tokenAmount)</button>
         </div>
         <h2>HappySep Play</h2>
+        <p>DDJAT九月HappySep合約大放送最高十倍送，數量有限請勿錯過。目前要玩需要兩個交易經過兩個合約，一個是原DDJAT授權代發approve以及HappySep的play這兩個函式，注意許可數量兩個交易必須一致。</p>
         <p>happysep contract1 address : 0xf79053D8b15570Eea73e7F069698B8F3C1E0B2a3</p>
         <p>happysep contract2 address : 0xf51ec6f054fab6663cc3b48da9d56b15531f4fba</p>
         <p>Gas Limit : 60000 Units</p>
+        <p>happySepAddress : {{toApproveAccount}}</p>
         <p>tokenAmount : <input v-model="tokenAmount" size="80"></p>
         <div>
             <button v-on:click="play">play(tokenAmount)</button>
@@ -96,7 +98,7 @@
                     })
                 },
                 play: function () {
-                    play('0xf79053D8b15570Eea73e7F069698B8F3C1E0B2a3', data.tokenAmount, function (err, result) {
+                    play(data.toApproveAccount, data.tokenAmount, function (err, result) {
                         console.log(err, result);
                     })
                 }
