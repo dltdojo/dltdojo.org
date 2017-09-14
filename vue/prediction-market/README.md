@@ -1,0 +1,2 @@
+* gnosis-contracts/contracts/solidity/Markets at master · ConsenSys/gnosis-contracts https://github.com/ConsenSys/gnosis-contracts/tree/master/contracts/solidity/Markets
+* decentralized-prediction-market/contracts at master · Nikhil22/decentralized-prediction-market https://github.com/Nikhil22/decentralized-prediction-market/tree/master/contracts
