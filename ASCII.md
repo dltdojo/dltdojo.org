@@ -53,18 +53,28 @@
 ## Prisoner's dilemma
 
 ```
-+------- Prisoner's-Dilemma ------+
++---------------------------------+
 |                                 |
-|   Blue\Red   Cooperate  Defect  |
-|  -----------------------------  |
-|  Cooperate      R\R       S\T   |
+|        Prisoner's Dilemma       |
 |                                 |
-|     Defect      T\S       P\P   |
-|  -----------------------------  |
+|   Blue\Red  Cooperate  Defect   |
+|                                 |
+|  Cooperate     R\R       S\T    |
+|                                 |
+|     Defect     T\S       P\P    |
 |                                 |
 |         T > R > P > S           |
 |                                 |
+|             Cooperate  Defect   |
+|                                 |
+|                  10       12    |
+|  Cooperate     10        5      |
+|                                 |
+|                   5        6    |
+|     Defect     12        6      |
+|                                 |
 +---------------------------------+
+
 ```
 
 ## Prisoner's Dilemma + Oracle Machine
