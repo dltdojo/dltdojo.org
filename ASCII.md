@@ -65,16 +65,17 @@
 |                                 |
 |         T > R > P > S           |
 |                                 |
+|  +---------------------------+  |
+|                                 |
 |             Cooperate  Defect   |
 |                                 |
 |                  10       12    |
-|  Cooperate     10        5      |
+|  Cooperate    10        5       |
 |                                 |
 |                   5        6    |
-|     Defect     12        6      |
+|     Defect    12        6       |
 |                                 |
 +---------------------------------+
-
 ```
 
 ## Prisoner's Dilemma + Oracle Machine
